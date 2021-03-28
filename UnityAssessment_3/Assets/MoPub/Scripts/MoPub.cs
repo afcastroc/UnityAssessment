@@ -243,6 +243,8 @@ public abstract class MoPub : MoPubBase
     {
         var width = maxAdSize.Width();
         var height = maxAdSize.Height();
+		Debug.Log("RequestBanner " + MoPubLog.AdLogEvent.LoadAttempted);
+		Debug.Log("RequestBanner " + "Size requested: " + width + "x" + height);
         MoPubLog.Log("RequestBanner", MoPubLog.AdLogEvent.LoadAttempted);
         MoPubLog.Log("RequestBanner", "Size requested: " + width + "x" + height);
         AdUnitManager.GetAdUnit(adUnitId).RequestBanner(width, height, position, keywords, userDataKeywords);
