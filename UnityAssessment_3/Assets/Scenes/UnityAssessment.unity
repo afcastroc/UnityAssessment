@@ -475,7 +475,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1539784124}
         m_TargetAssemblyTypeName: BasicAdsCode, Assembly-CSharp
-        m_MethodName: ShowAdBanner
+        m_MethodName: ShowAdInterstitial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

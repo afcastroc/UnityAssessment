@@ -9,7 +9,6 @@ public class BasicAdsCode : MonoBehaviour
 {
 	public string bannerUnitId;
 	public string intersticialUnitID;
-	public string fullscreenUnitID;
 	public string rewardedUnitID;
 
 	private bool initializedSystem = false;
@@ -32,8 +31,14 @@ public class BasicAdsCode : MonoBehaviour
 	{
 		MoPubManager.OnSdkInitializedEvent += OnSdkInitializedEvent;
 		MoPubManager.OnAdLoadedEvent += OnAdLoadedEvent;
+		MoPubManager.OnAdFailedEvent += OnAdFailedEvent;
+
 		MoPubManager.OnInterstitialLoadedEvent += OnInterstitialLoadedEvent;
+		MoPubManager.OnInterstitialFailedEvent += OnInterstitialFailedEvent;
+		MoPubManager.OnInterstitialDismissedEvent += OnInterstitialDismissedEvent;
+
 		MoPubManager.OnRewardedVideoLoadedEvent += OnRewardedVideoLoadedEvent;
+		MoPubManager.OnRewardedVideoFailedEvent += OnRewardedVideoFailedEvent;
 	}
 
 	public void InitializeAds()
@@ -77,7 +82,7 @@ public class BasicAdsCode : MonoBehaviour
 	public void ShowAdInterstitial()
 	{
 		MoPub.RequestInterstitialAd(intersticialUnitID);
-		if(interstitialLoaded) MoPub.ShowInterstitialAd(intersticialUnitID);
+		if (interstitialLoaded) MoPub.ShowInterstitialAd(intersticialUnitID);
 	}
 
 	public void ShowRewarded()
@@ -112,16 +117,36 @@ public class BasicAdsCode : MonoBehaviour
 		bannerLoaded = true;
 	}
 
+	private void OnAdFailedEvent(string arg1, string arg2)
+	{
+		Debug.Log("Failed Ad Load: " + arg1 + " - " + arg2);
+	}
+
 	private void OnInterstitialLoadedEvent(string adUnitId)
 	{
 		Debug.Log("Intersticial Added");
 		interstitialLoaded = true;
 	}
 
+	private void OnInterstitialFailedEvent(string arg1, string arg2)
+	{
+		Debug.Log("Failed Instertitial Load: " + arg1 + " - " + arg2);
+	}
+
+	private void OnInterstitialDismissedEvent(string obj)
+	{
+		Debug.Log("Failed Instertitial Load Diss: " + obj);
+	}
+
 	private void OnRewardedVideoLoadedEvent(string obj)
 	{
 		Debug.Log("Rewarded Added: " + obj);
 		rewardedLoaded = true;
+	}
+
+	private void OnRewardedVideoFailedEvent(string arg1, string arg2)
+	{
+		Debug.Log("Failed Rewarded Load: " + arg1 + " - " + arg2);
 	}
 
 	private static string GetCustomData(string customDataFieldValue)
