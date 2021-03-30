@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+//This is the main Class that handle Ad process
 public class AdView : MonoBehaviour
 {
 	#region variables

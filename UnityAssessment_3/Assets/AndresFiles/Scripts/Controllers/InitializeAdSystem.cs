@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+//Handler init process.
 public class InitializeAdSystem : MonoBehaviour, IInitializeAdSystem
 {
 	private string bannerUnitId;
