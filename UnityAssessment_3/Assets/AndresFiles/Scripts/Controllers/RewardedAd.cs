@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class RewardedAd : MonoBehaviour, IContentAd
 {
+	#region Variables
 	private string unitId;
 	private AdView view;
 	private int times = 0;
+	#endregion
 
+	#region Setup
 	private void Awake()
 	{
 		view = GetComponent<AdView>();
@@ -21,7 +24,9 @@ public class RewardedAd : MonoBehaviour, IContentAd
 		MoPubManager.OnRewardedVideoFailedEvent += OnRewardedVideoFailedEvent;
 		MoPubManager.OnRewardedVideoShownEvent += OnRewardedVideoShownEvent;
 	}
+	#endregion
 
+	#region AdMethods
 	public void LoadAd(string _unitId)
 	{
 		unitId = _unitId;
@@ -41,6 +46,7 @@ public class RewardedAd : MonoBehaviour, IContentAd
 	{
 		return customDataFieldValue != "example" ? customDataFieldValue : null;
 	}
+	#endregion
 
 	#region Events
 

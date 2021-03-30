@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class BannerAd : MonoBehaviour, IContentAd
 {
+	#region Variables
 	private string unitId;
 	private AdView view;
+	#endregion
 
+	#region setup
 	private void Awake()
 	{
 		view = GetComponent<AdView>();
@@ -20,7 +23,9 @@ public class BannerAd : MonoBehaviour, IContentAd
 		MoPubManager.OnAdFailedEvent += OnAdFailedEvent;
 		MoPubManager.OnAdCollapsedEvent += OnAdCollapsedEvent;
 	}
+	#endregion
 
+	#region AdMethods
 	public void LoadAd(string _unitId)
 	{
 		unitId = _unitId;
@@ -33,6 +38,7 @@ public class BannerAd : MonoBehaviour, IContentAd
 	{
 		MoPub.ShowBanner(unitId, true);
 	}
+	#endregion
 
 	#region Events
 

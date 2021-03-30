@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class InterstitialAd : MonoBehaviour, IContentAd
 {
+	#region Variables
 	private string unitId;
 	private AdView view;
 
@@ -13,7 +14,9 @@ public class InterstitialAd : MonoBehaviour, IContentAd
 		shown,
 		dismiss
 	}
+	#endregion
 
+	#region Setup
 	private void Awake()
 	{
 		view = GetComponent<AdView>();
@@ -28,7 +31,9 @@ public class InterstitialAd : MonoBehaviour, IContentAd
 		MoPubManager.OnInterstitialShownEvent += OnInterstitialShownEvent;
 		MoPubManager.OnInterstitialExpiredEvent += OnInterstitialExpiredEvent;
 	}
+	#endregion
 
+	#region AdMethods
 	public void LoadAd(string _unitId)
 	{
 		unitId = _unitId;
@@ -41,6 +46,7 @@ public class InterstitialAd : MonoBehaviour, IContentAd
 	{
 		MoPub.ShowInterstitialAd(unitId);
 	}
+	#endregion
 
 	#region Events
 
