@@ -2340,7 +2340,7 @@ MonoBehaviour:
   showBannerBtn: {fileID: 654828857}
   showInterstitialBtn: {fileID: 126513013}
   showRewardedBtn: {fileID: 1291216297}
-  interstitialState: {fileID: 28631975}
+  interstitialState: {fileID: 1643643325}
   rewardedcounter: {fileID: 106303377}
 --- !u!114 &1539784128
 MonoBehaviour:

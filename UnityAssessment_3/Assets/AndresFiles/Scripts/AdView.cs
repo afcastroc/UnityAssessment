@@ -94,8 +94,10 @@ public class AdView : MonoBehaviour
 
 	public void ShowInterstitialState(string state)
 	{
+		Debug.Log("ShowInterstitialState: " + state);
 		interstitialState.GetComponent<TextMeshProUGUI>().text = "Interstitial was " + state;
 		interstitialState.gameObject.SetActive(true);
+		showInterstitialBtn.gameObject.SetActive(false);
 	}
 
 	#endregion

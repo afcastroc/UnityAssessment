@@ -26,6 +26,7 @@ public class InterstitialAd : MonoBehaviour, IContentAd
 		MoPubManager.OnInterstitialFailedEvent += OnInterstitialFailedEvent;
 		MoPubManager.OnInterstitialDismissedEvent += OnInterstitialDismissedEvent;
 		MoPubManager.OnInterstitialShownEvent += OnInterstitialShownEvent;
+		MoPubManager.OnInterstitialExpiredEvent += OnInterstitialExpiredEvent;
 	}
 
 	public void LoadAd(string _unitId)
@@ -56,14 +57,19 @@ public class InterstitialAd : MonoBehaviour, IContentAd
 
 	private void OnInterstitialShownEvent(string obj)
 	{
-		Debug.Log("Interstitial was showned");
+		Debug.Log("Interstitial was showned: " + obj);
 		view.ShowInterstitialState(state.shown.ToString());
 	}
 
 	private void OnInterstitialDismissedEvent(string obj)
 	{
-		Debug.Log("Interstitial was dismissed ");
+		Debug.Log("Interstitial was dismissed: " + obj);
 		view.ShowInterstitialState(state.dismiss.ToString());
+	}
+
+	private void OnInterstitialExpiredEvent(string obj)
+	{
+		Debug.Log("Interstitial was Expired: " + obj);
 	}
 
 	#endregion
